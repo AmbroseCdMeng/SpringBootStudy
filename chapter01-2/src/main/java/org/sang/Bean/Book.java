@@ -10,6 +10,14 @@ public class Book {
     private String author;
     private Float price;
 
+    public Book() {
+    }
+    public Book(String name, String author, Float price) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
