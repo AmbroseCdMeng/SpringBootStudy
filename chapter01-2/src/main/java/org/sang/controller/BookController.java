@@ -15,11 +15,19 @@ public class BookController {
     @Autowired
     Book book;
 
+    /**
+     * 类型安全配置属性 —— 配置数据注入 Bean 的示例
+     * @return
+     */
     @GetMapping("/book")
     public String book(){
         return book.toString();
     }
 
+    /**
+     * ModelAndView 返回示例
+     * @return
+     */
     @GetMapping("/books")
     public ModelAndView books(){
         List<Book> books = new ArrayList<>();
