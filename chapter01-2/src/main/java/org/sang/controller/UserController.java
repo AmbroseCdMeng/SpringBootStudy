@@ -1,6 +1,6 @@
 package org.sang.controller;
 
-import org.sang.Bean.User;
+import org.sang.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

@@ -1,8 +1,7 @@
 package org.sang.controller;
 
-import org.sang.Bean.Book;
+import org.sang.bean.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
