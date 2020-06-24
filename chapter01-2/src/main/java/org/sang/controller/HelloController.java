@@ -25,4 +25,10 @@ public class HelloController {
             System.out.println(key + " >>>>>>>>>> " + value);
         }
     }
+
+    @GetMapping("/errorHello")
+    public int errorHello(){
+        /* 抛出异常：测试错误页面效果 */
+        return 1 / 0 ;
+    }
 }

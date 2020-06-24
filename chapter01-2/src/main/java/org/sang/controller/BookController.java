@@ -21,7 +21,7 @@ public class BookController {
      * 类型安全配置属性 —— 配置数据注入 Bean 的示例
      * @return
      */
-    @GetMapping("/book")
+    //@GetMapping("/book")
     public String book(){
         return book.toString();
     }

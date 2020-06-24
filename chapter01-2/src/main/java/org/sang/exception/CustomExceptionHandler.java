@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 /**
  * 自定义全局异常
  */
-@ControllerAdvice
+//@ControllerAdvice     //因优先级高于自定义错误页面，故屏蔽以测试自定义错误页面
 public class CustomExceptionHandler {
 
     /**
