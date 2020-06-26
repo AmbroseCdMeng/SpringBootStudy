@@ -3,8 +3,11 @@ package org.sang.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.sang.Interceptor.MyInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
@@ -12,6 +15,11 @@ import java.util.List;
 
 @Configuration
 public class MyWebMvcConfig implements WebMvcConfigurer {
+
+    /**
+     * 消息转换器 全局配置
+     * @param converters
+     */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
@@ -27,5 +35,29 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
         );
         converter.setFastJsonConfig(config);
         converters.add(converter);
+    }
+
+    /**
+     * CORS 全局配置
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/book/**")
+                .allowedHeaders("*")
+                .allowedMethods("*")
+                .maxAge(1800)
+                .allowedOrigins("https://localhost:8080");
+    }
+
+    /**
+     * 拦截器配置
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MyInterceptor())
+                .addPathPatterns("/**")         //拦截路径
+                .excludePathPatterns("/hello"); //排除路径
     }
 }

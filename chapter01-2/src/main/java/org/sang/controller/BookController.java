@@ -3,10 +3,7 @@ package org.sang.controller;
 import org.sang.bean.Author;
 import org.sang.bean.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -55,6 +52,20 @@ public class BookController {
     @ResponseBody
     public String book(@ModelAttribute("b") Book book, @ModelAttribute("a")Author author){
         return book.toString() + " >>>>>>>>>> " + author.toString();
+    }
+
+
+    /************ CORS 使用 ************/
+    @PostMapping("/")
+    @CrossOrigin(value = "https://localhost:8080", maxAge = 1800, allowedHeaders = "*")
+    public String addBook(String name){
+        return "receive" + name;
+    }
+
+    @DeleteMapping("/{id}")
+    @CrossOrigin(value = "https://localhost:8080", maxAge = 1800, allowedHeaders = "*")
+    public String deleteBookById(@PathVariable Long id){
+        return String.valueOf(id);
     }
 }
 
