@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
@@ -59,5 +60,15 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new MyInterceptor())
                 .addPathPatterns("/**")         //拦截路径
                 .excludePathPatterns("/hello"); //排除路径
+    }
+
+    /**
+     * 添加路径映射
+     * @param registry
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        /* 这行代码其实就相当于在控制器中对 login 页面 和 /login 映射，提升了访问速度，但无法进行数据处理 */
+        registry.addViewController("/login").setViewName("login");
     }
 }
