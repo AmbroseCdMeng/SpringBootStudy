@@ -1,4 +1,4 @@
-package org.sang.CommandLineRunner;
+package org.sang.commandLineRunner;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;

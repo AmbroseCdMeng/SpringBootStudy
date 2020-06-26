@@ -1,4 +1,4 @@
-package org.sang.ApplicationRunner;
+package org.sang.applicationRunner;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
