@@ -8,7 +8,8 @@ import java.io.IOException;
 /**
  * 添加一个 Filter 组件
  */
-@WebFilter("/*")
+//先注释以便于测试其他功能
+//@WebFilter("/*")
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
