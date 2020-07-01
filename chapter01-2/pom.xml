@@ -72,7 +72,7 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!--    整合持久层技术    -->
+        <!--   整合持久层技术    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -89,6 +89,14 @@
             <artifactId>druid</artifactId>
             <version>1.1.9</version>
         </dependency>
+
+        <!--    添加 MyBatis 依赖    -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -99,5 +107,18 @@
                 <version>2.2.2.RELEASE</version>
             </plugin>
         </plugins>
+
+        <!-- 整合 MyMyBatis 配置 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

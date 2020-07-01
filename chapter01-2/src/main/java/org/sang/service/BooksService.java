@@ -3,13 +3,18 @@ package org.sang.service;
 import org.sang.bean.Book;
 import org.sang.bean.Books;
 import org.sang.dao.BooksDao;
+import org.sang.mapper.BooksMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 整合 JdbcTemplate
+ */
 @Service
 public class BooksService {
+
     @Autowired
     BooksDao booksDao;
     public int addBook(Books book){
