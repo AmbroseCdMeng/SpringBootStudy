@@ -62,7 +62,7 @@ public class BooksController {
         System.out.println("updateBook >>> " + j);
 
         Books b3 = booksService1.getBookById(1);
-        System.out.println("getBookById >>> " + b3.getName());
+        System.out.println("getBookById >>> " + b3);
 
         int k = booksService1.deleteBookById(1);
         System.out.println("deleteBookById >>> " + k);
