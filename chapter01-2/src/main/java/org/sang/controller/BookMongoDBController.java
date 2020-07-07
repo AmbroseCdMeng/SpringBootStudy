@@ -4,6 +4,7 @@ import org.sang.bean.Book;
 import org.sang.bean.BookMongo;
 import org.sang.dao.BookMongoDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.sound.midi.Soundbank;
@@ -44,7 +45,7 @@ public class BookMongoDBController {
 
     /* MongoTemplate */
     @Autowired
-    MongoTempalte mongoTemplate;
+    MongoTemplate mongoTemplate;
     @GetMapping("/mongoTest2")
     public void mongoTest2 () {
         List<BookMongo> books = new ArrayList<>();
