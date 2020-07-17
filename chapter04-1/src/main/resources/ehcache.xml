@@ -1,0 +1,35 @@
+<!-- 常规 Ehcache 配置文件 -->
+<ehcache>
+    <!--  提供两个缓存策略  -->
+    <diskStore path="java.io.tmpdir/cache"/>
+
+    <!--  1、默认缓存配置  -->
+    <defaultCache
+            maxElementsInMemory="1000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+    />
+
+    <!--  2、自定义缓存配置  -->
+    <!--  name: 缓存名称  -->
+    <!--  maxElementsInMemory: 缓存最大个数  -->
+    <!--  eternal: 缓存对象是否永久有效。为 true 时 timeout 不生效  -->
+    <!--  timeToIdleSeconds: 缓存对象在失效前的允许闲置时间（单位：秒）。eternal 为 false 时才生效  -->
+    <!--  timeToLiveSeconds: 缓存对象在失效前的允许存活时间（单位：秒）。eternal 为 false 时才生效  -->
+    <!--  overflowToDisk: 内存中的对象数量达到 maxElementsInMemory 时，Ehcache 是否将对象写到磁盘中  -->
+    <!--  diskExpiryThreadIntervalSecond: 磁盘失效线程运行时间间隔  -->
+    <cache
+            name="book_cache"
+            maxElementsInMemory="10000"
+            eternal="true"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            diskPersistent="true"
+            diskExpiryThreadIntervalSeconds="600"
+    />
+</ehcache>
