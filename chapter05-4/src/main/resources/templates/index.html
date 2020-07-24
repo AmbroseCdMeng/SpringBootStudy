@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Hello,
+<!--  登录成功展示当前登录用户的用户名  -->
+    <shiro:principal/>
+</h3>
+<!--  展示注销登录按钮  -->
+<h3><a href="/logout"> 注销登录 </a></h3>
+<!--  若当前用户具备 admin 角色，展示管理员页面的超链接  -->
+<h3><a href="/admin" shiro:hasRole="admin"> 管理员页面 </a></h3>
+<!--  若当前用户具备 admin 或者 user 角色，展示普通用户页面的超链接  -->
+<h3><a href="/user" shiro:hasAnyRoles="admin,user"> 普通用户页面 </a></h3>
+</body>
+</html>
