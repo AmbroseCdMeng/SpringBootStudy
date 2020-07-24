@@ -26,6 +26,8 @@ function connect() {
     stompClient.connect({}, (frame) => {
         // 首先调用 setConnected 方法进行页面设置
         setConnected(true);
+        // 发送加入群聊提示
+        sendName(`★★★★★ ${$('#name').val()} 加入了群聊 ★★★★★`)
         // 然后调用 subscribe 方法订阅服务器发送回来的消息
         stompClient.subscribe('/topic/greetings', (greeting) => {
             // 并展示服务端发送来的消息
@@ -35,13 +37,16 @@ function connect() {
 }
 
 function disconnect() {
-    if (stompClient !== null)
+    if (stompClient !== null){
+        // 发送退出群聊提示
+        sendName(`☆☆☆☆☆ ${$('#name').val()} 退出了群聊 ☆☆☆☆☆`)
         stompClient.disconnect();
+    }
     setConnected(false);
 }
 
-function sendName() {
-    stompClient.send('/app/hello', {}, JSON.stringify({'name': $('#name').val(), 'content': $('#content').val()}))
+function sendName(content=$('#content').val()) {
+    stompClient.send('/app/hello', {}, JSON.stringify({'name': $('#name').val(), 'content': content}))
     $('input#content').val('');
 }
 
